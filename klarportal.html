@@ -10,7 +10,7 @@
     />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body>
+  <body class="has-cookie-banner-mock">
     <a class="skip-link" href="#inhalt">Zum Hauptinhalt springen</a>
 
     <header class="site-header">
@@ -201,6 +201,30 @@
         <p class="copyright-line">© 2026 KlarNachfragen. Alle Rechte vorbehalten.</p>
       </div>
     </footer>
+    <aside
+      class="cookie-banner"
+      role="region"
+      aria-labelledby="cookie-banner-heading"
+      aria-describedby="cookie-banner-text"
+    >
+      <div class="cookie-banner__inner">
+        <h2 id="cookie-banner-heading" class="cookie-banner__title">Cookies und Google Analytics</h2>
+        <p id="cookie-banner-text" class="cookie-banner__text">
+          Wir möchten Google Analytics einsetzen, um zu verstehen, wie unsere Website genutzt wird. Dabei können
+          Cookies gesetzt und Daten (z.&nbsp;B. gekürzte IP-Adresse, Nutzungsverhalten) an Google übermittelt werden.
+          Weitere Informationen finden Sie in unseren
+          <a href="datenschutz.html#google-analytics">Datenschutzhinweisen zu Google Analytics</a>.
+        </p>
+        <div class="cookie-banner__actions">
+          <button type="button" class="btn btn-portal-secondary cookie-banner__btn" disabled aria-disabled="true">
+            Alle ablehnen
+          </button>
+          <button type="button" class="btn btn-primary cookie-banner__btn" disabled aria-disabled="true">
+            Alle akzeptieren
+          </button>
+        </div>
+      </div>
+    </aside>
     <script defer src="js/enhancements.js"></script>
   </body>
 </html>
