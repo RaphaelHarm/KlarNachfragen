@@ -1,0 +1,957 @@
+:root {
+  color-scheme: light;
+  --color-bg: #f4f6f8;
+  --color-surface: #ffffff;
+  --color-text: #15181c;
+  --color-text-muted: #3f4751;
+  --color-border: #c6ccd4;
+  --color-accent: #0a4f6e;
+  --color-accent-hover: #083951;
+  --color-focus: #bf5c00;
+  --shadow-subtle: 0 1px 0 rgba(21, 24, 28, 0.06);
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --line-max: 70ch;
+  --spacing-section: clamp(2.5rem, 5vw, 4rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0.75rem 1rem;
+  background: var(--color-surface);
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: underline;
+  z-index: 1000;
+  transform: translateY(-120%);
+  transition: transform 0.15s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.container {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+}
+
+.site-header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-subtle);
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding-block: 1rem 1.25rem;
+}
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.brand-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.25;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.brand-logo {
+  width: 2.75rem;
+  height: 2.75rem;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+}
+
+.brand-link:hover {
+  color: var(--color-accent-hover);
+}
+
+.brand-link:focus-visible {
+  border-radius: 2px;
+}
+
+.tagline {
+  display: block;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-top: 0.2rem;
+}
+
+.site-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+
+.site-nav a {
+  display: inline-block;
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  padding-block: 0.35rem;
+  min-height: 2.5rem;
+  line-height: 1.4;
+}
+
+.site-nav a:hover {
+  color: var(--color-accent-hover);
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+main {
+  padding-block: var(--spacing-section);
+}
+
+.intro {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding-block: clamp(2rem, 6vw, 3.75rem);
+}
+
+.intro .container > * + * {
+  margin-top: 1rem;
+}
+
+.lead-panel {
+  max-width: var(--line-max);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 2.625rem);
+  margin: 0 0 0.75rem;
+}
+
+h2 {
+  font-size: clamp(1.55rem, 2.8vw, 1.875rem);
+  margin: 0 0 1rem;
+}
+
+.lead-text {
+  font-size: 1.15rem;
+  margin: 0;
+  max-width: var(--line-max);
+}
+
+.disclaimer-note {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin: 0;
+  max-width: var(--line-max);
+}
+
+.sections-stack > section {
+  padding-block: var(--spacing-section);
+}
+
+.sections-stack > section:nth-child(even) {
+  background: var(--color-surface);
+  border-block: 1px solid var(--color-border);
+}
+
+.grid-features {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+.feature-card {
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 1.25rem 1.35rem;
+  background: var(--color-bg);
+}
+
+.feature-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
+}
+
+.feature-card p {
+  margin: 0;
+}
+
+.workflow-figure {
+  margin: 1.25rem 0 2rem;
+  max-width: min(100%, 52rem);
+}
+
+.workflow-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: var(--color-surface);
+}
+
+.workflow-figure figcaption {
+  margin-top: 0.65rem;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  max-width: 60ch;
+}
+
+.steps-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  counter-reset: step;
+}
+
+.steps-list li {
+  counter-increment: step;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: var(--color-bg);
+  position: relative;
+  padding-left: 4rem;
+  min-height: 3rem;
+}
+
+.steps-list li::before {
+  content: counter(step);
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.cta-banner {
+  text-align: left;
+}
+
+.cta-banner .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  justify-content: space-between;
+  background: var(--color-accent);
+  color: var(--color-surface);
+  padding: 1.5rem 1.75rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-accent-hover);
+}
+
+.cta-banner p {
+  margin: 0;
+  max-width: 36ch;
+}
+
+.cta-banner .cta-heading {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.6rem);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--color-surface);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background: var(--color-surface);
+  color: var(--color-accent-hover);
+}
+
+.btn-primary:hover {
+  background: var(--color-bg);
+  color: var(--color-accent-hover);
+}
+
+.btn-primary:focus-visible {
+  outline-color: var(--color-focus);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: inherit;
+  border-color: var(--color-surface);
+}
+
+.cta-banner .btn-secondary {
+  border-color: var(--color-surface);
+}
+
+.cta-banner .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.site-footer {
+  background: var(--color-text);
+  color: #e8ecf0;
+  padding-block: 2rem 2.25rem;
+  margin-top: 0;
+}
+
+.site-footer a {
+  color: #b8dfff;
+}
+
+.site-footer a:hover {
+  color: #dff0ff;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.footer-heading {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.65rem;
+  color: #f0f4f8;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.footer-nav a {
+  display: inline-block;
+  font-weight: 600;
+  padding-block: 0.4rem;
+  min-height: 2.5rem;
+  line-height: 1.4;
+}
+
+.copyright-line {
+  margin: 2rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid #424a54;
+  font-size: 0.9rem;
+  color: #c5cdd6;
+}
+
+/* Platzhalter-Seiten */
+.page-notice {
+  max-width: var(--line-max);
+  padding: clamp(2rem, 5vw, 3rem) 1.25rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+
+.page-notice .privacy-address {
+  font-style: normal;
+  margin: 0.75rem 0 1rem;
+  line-height: 1.55;
+}
+
+/* Datenschutzseite: klare Abschnitte und Lesbarkeit */
+.privacy-page .privacy-doc {
+  max-width: min(100%, 48rem);
+}
+
+.privacy-doc-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.privacy-doc-header h1 {
+  margin: 0 0 0.75rem;
+}
+
+.privacy-doc-lead {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.privacy-section {
+  margin-top: 1.75rem;
+}
+
+.privacy-section:first-of-type {
+  margin-top: 0;
+}
+
+.privacy-section h2 {
+  margin: 0 0 0.85rem;
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+.privacy-section p {
+  margin: 0 0 1rem;
+  max-width: 65ch;
+}
+
+.privacy-section ul {
+  margin: 0 0 1rem;
+  padding-left: 1.35rem;
+  max-width: 65ch;
+}
+
+.privacy-section li {
+  margin-bottom: 0.35rem;
+}
+
+.privacy-section p:last-child,
+.privacy-section ul:last-child {
+  margin-bottom: 0;
+}
+
+.privacy-doc-footer {
+  margin: 2rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.privacy-doc-footer a {
+  font-weight: 600;
+}
+
+/* Kontaktseite mit Impressum */
+.contact-legal-page .page-notice {
+  max-width: min(100%, 48rem);
+}
+
+.contact-section {
+  margin-top: 1.75rem;
+}
+
+.contact-section:first-of-type {
+  margin-top: 0;
+}
+
+.contact-section h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.3rem;
+}
+
+.contact-address {
+  font-style: normal;
+  margin: 0;
+  line-height: 1.55;
+}
+
+.contact-impressum {
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.contact-impressum h2 {
+  margin-bottom: 0.65rem;
+}
+
+.impressum-intro {
+  margin: 0 0 1.25rem;
+  max-width: 65ch;
+  color: var(--color-text-muted);
+  font-size: 0.98rem;
+}
+
+.contact-impressum h3 {
+  margin: 1.35rem 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.contact-impressum > h3:first-of-type {
+  margin-top: 0;
+}
+
+.impressum-note {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.impressum-dl {
+  margin: 0.75rem 0 0;
+}
+
+.impressum-dl dt {
+  font-weight: 700;
+  margin-top: 0.85rem;
+}
+
+.impressum-dl dt:first-child {
+  margin-top: 0;
+}
+
+.impressum-dl dd {
+  margin: 0.35rem 0 0;
+  max-width: 60ch;
+}
+
+.impressum-disclaimer {
+  margin: 1.75rem 0 0;
+  padding: 1rem 1.1rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+/* Rechtsseiten: Urheberrecht und Lizenzbedingungen getrennt */
+.legal-split-page {
+  max-width: var(--line-max);
+}
+
+.legal-page-title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.85rem, 3.5vw, 2.35rem);
+  line-height: 1.25;
+  max-width: var(--line-max);
+}
+
+.legal-page-lead {
+  margin: 0 0 1.75rem;
+  max-width: var(--line-max);
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+.legal-section + .legal-section {
+  margin-top: 2rem;
+}
+
+.legal-section h2 {
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
+}
+
+.legal-section p {
+  margin: 0 0 1rem;
+  max-width: var(--line-max);
+}
+
+.legal-section p:last-child {
+  margin-bottom: 0;
+}
+
+/* Über uns & Markenregister */
+.about-main {
+  padding-block: var(--spacing-section);
+}
+
+.about-page-header h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.85rem, 3.5vw, 2.35rem);
+}
+
+.about-lead {
+  margin: 0;
+  max-width: var(--line-max);
+}
+
+.about-section {
+  margin-top: var(--spacing-section);
+  max-width: var(--line-max);
+}
+
+.about-section h2 {
+  margin: 0 0 1rem;
+}
+
+.about-section > p {
+  margin: 0 0 1rem;
+  max-width: var(--line-max);
+}
+
+.about-section > p:last-child {
+  margin-bottom: 0;
+}
+
+.code-inline {
+  font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+  font-size: 0.95em;
+  padding: 0.1rem 0.35rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+}
+
+.brand-registry > p {
+  margin-bottom: 1.25rem;
+}
+
+.brand-registry-list {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.brand-entry {
+  padding: 1.35rem 1.45rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  max-width: min(100%, 52rem);
+}
+
+.brand-entry h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.brand-summary {
+  margin: 0 0 1rem;
+}
+
+.brand-meta {
+  margin: 0;
+}
+
+.brand-meta dt {
+  margin-top: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.brand-meta dt:first-of-type {
+  margin-top: 0;
+}
+
+.brand-meta dd {
+  margin: 0.35rem 0 0;
+  color: var(--color-text-muted);
+}
+
+/* KlarPortal – Anmeldung */
+.portal-main {
+  max-width: min(100%, 40rem);
+}
+
+.portal-page-header h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.85rem, 3.5vw, 2.35rem);
+}
+
+.portal-lead {
+  margin: 0 0 2rem;
+  max-width: var(--line-max);
+}
+
+.login-card {
+  max-width: min(100%, 28rem);
+  padding: clamp(1.5rem, 4vw, 2rem);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+
+.login-fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.login-legend {
+  padding: 0;
+  margin: 0 0 1.25rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"],
+.form-group textarea {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  font: inherit;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 4px;
+}
+
+.form-group textarea {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+.form-group input[type="text"]:focus-visible,
+.form-group input[type="password"]:focus-visible,
+.form-group input[type="email"]:focus-visible,
+.form-group textarea:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.form-hint {
+  margin: 0.45rem 0 0;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  max-width: 55ch;
+}
+
+.form-group-inline {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.65rem 0.75rem;
+  align-items: start;
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+}
+
+.form-group-inline input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.form-group-inline label {
+  margin: 0;
+  font-weight: 400;
+}
+
+.form-actions {
+  margin-top: 1.5rem;
+}
+
+.form-actions .btn {
+  width: 100%;
+}
+
+.form-actions-split {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: stretch;
+}
+
+.form-actions-split .btn {
+  width: auto;
+  flex: 1 1 10rem;
+  min-width: min(100%, 10rem);
+}
+
+.btn-portal-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  background: transparent;
+}
+
+.btn-portal-secondary:hover {
+  background: var(--color-bg);
+  color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
+.btn-portal-secondary:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.form-status {
+  margin: 1.25rem 0 0;
+  min-height: 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-accent-hover);
+}
+
+.portal-note {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.portal-note h2 {
+  font-size: 1.1rem;
+  margin: 0 0 0.65rem;
+}
+
+.portal-note p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  max-width: 55ch;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.login-card-register {
+  margin-top: 2rem;
+}
+
+.register-heading {
+  margin: 0 0 0.75rem;
+  font-size: 1.35rem;
+}
+
+.register-intro {
+  margin: 0 0 1.5rem;
+  color: var(--color-text-muted);
+  max-width: 55ch;
+}
+
+.register-privacy-note {
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  max-width: 55ch;
+}
+
+@media (max-width: 520px) {
+  .cta-banner .container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .form-actions-split .btn {
+    width: 100%;
+    flex: 1 1 100%;
+  }
+}

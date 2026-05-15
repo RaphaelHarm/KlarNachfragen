@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KlarPortal – Kundenanmeldung | KlarNachfragen</title>
+    <meta
+      name="description"
+      content="KlarPortal: Anmeldung und Registrierung für Privatpersonen – Zugang zu Anfragen und Dokumentation mit E-Mail und Passwort bei KlarNachfragen."
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Hauptinhalt springen</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <div>
+          <a class="brand-link" href="index.html">
+            <img
+              class="brand-logo"
+              src="imgs/logo.png"
+              alt=""
+              width="44"
+              height="44"
+              decoding="async"
+            />
+            <span class="brand-stack">
+              <span class="brand-name">KlarNachfragen</span>
+              <span class="tagline">Datenauskunft und Dokumentation</span>
+            </span>
+          </a>
+        </div>
+        <nav class="site-nav" aria-label="Hauptnavigation">
+          <ul>
+            <li><a href="index.html#leistungen">Leistungen</a></li>
+            <li><a href="index.html#ablauf">Ablauf</a></li>
+            <li><a href="index.html#warum-wir">Sicherheit &amp; Transparenz</a></li>
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="klarportal.html" aria-current="page">KlarPortal</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="inhalt" class="container portal-main" tabindex="-1">
+      <header class="portal-page-header">
+        <h1>KlarPortal</h1>
+        <p class="lead-text portal-lead">
+          Melden Sie sich hier an, um den Bearbeitungsstand Ihrer Anfragen, eingegangene
+          Antworten und bereitgestellte Unterlagen einzusehen. 
+          Noch kein Konto? Legen Sie es weiter unten mit E-Mail und Passwort an.
+        </p>
+      </header>
+
+      <div class="login-card">
+        <form id="portal-login-form" action="#" method="post">
+          <fieldset class="login-fieldset">
+            <legend class="login-legend">Anmeldung</legend>
+
+            <div class="form-group">
+              <label for="portal-user-id">E-Mail-Adresse</label>
+              <input
+                id="portal-user-id"
+                name="user"
+                type="email"
+                autocomplete="email"
+                inputmode="email"
+                spellcheck="false"
+                required
+                aria-required="true"
+                aria-describedby="portal-user-hint"
+              />
+              <p id="portal-user-hint" class="form-hint">
+                Die E-Mail-Adresse, mit der Sie registriert sind.
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label for="portal-password">Passwort</label>
+              <input
+                id="portal-password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                required
+                aria-required="true"
+              />
+              <p class="form-hint">
+                <a href="">Passwort vergessen?</a>
+              </p>
+            </div>
+
+            <div class="form-group form-group-inline">
+              <input id="portal-remember" name="remember" type="checkbox" value="1" />
+              <label for="portal-remember">Angemeldet bleiben</label>
+            </div>
+
+            <div class="form-actions form-actions-split">
+              <button class="btn btn-primary" type="submit">Anmelden</button>
+              <a class="btn btn-portal-secondary" href="#registrierung">Registrieren</a>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
+      <section
+        id="registrierung"
+        class="login-card login-card-register"
+        tabindex="-1"
+        aria-labelledby="register-heading"
+      >
+        <h2 id="register-heading" class="register-heading">Registrierung</h2>
+        <p class="register-intro">
+          Legen Sie Ihr KlarPortal-Konto mit E-Mail-Adresse und Passwort an. 
+          Bereits freigeschaltete Nutzerinnen und Nutzer melden sich oben an.
+        </p>
+
+        <form id="portal-register-form" action="#" method="post">
+          <fieldset class="login-fieldset">
+            <legend class="login-legend">E-Mail und Passwort</legend>
+
+            <div class="form-group">
+              <label for="register-email">E-Mail-Adresse</label>
+              <input
+                id="register-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                inputmode="email"
+                required
+                aria-required="true"
+                aria-describedby="register-email-hint"
+              />
+              <p id="register-email-hint" class="form-hint">
+                Die E-Mail-Adresse, mit der Sie Benachrichtigungen empfangen wollen.
+              </p>
+            </div>
+            
+
+            <div class="form-group">
+              <label for="register-password">Passwort</label>
+              <input
+                id="register-password"
+                name="password"
+                type="password"
+                autocomplete="new-password"
+                required
+                aria-required="true"
+                aria-describedby="register-password-hint"
+                minlength="12"
+              />
+              <p id="register-password-hint" class="form-hint">
+                Wählen Sie ein sicheres Passwort (mindestens 12 Zeichen).
+              </p>
+            </div>
+
+            <p class="register-privacy-note">
+              Informationen zur Verarbeitung Ihrer personenbezogenen Daten finden Sie in den
+              <a href="datenschutz.html">Datenschutzhinweisen</a>.
+            </p>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Konto anlegen</button>
+            </div>
+          </fieldset>
+        </form>
+
+        <p id="portal-register-status" class="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-nav" aria-labelledby="footer-legal-heading">
+          <p id="footer-legal-heading" class="footer-heading">Rechtliches</p>
+          <ul>
+            <li><a href="barrierefreiheit.html">Barrierefreiheitserklärung</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="urheberrecht-lizenzen.html">Urheberrecht &amp; Lizenzen</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav" aria-labelledby="footer-company-heading">
+          <p id="footer-company-heading" class="footer-heading">Unternehmen</p>
+          <ul>
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="klarportal.html" aria-current="page">KlarPortal</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav" aria-labelledby="footer-contact-heading">
+          <p id="footer-contact-heading" class="footer-heading">Kontakt</p>
+          <ul>
+            <li><a href="kontakt.html">Kontakt &amp; Ansprechpersonen</a></li>
+            <li><a href="kontakt.html#impressum">Impressum</a></li>
+            <li><a href="index.html">Zur Startseite</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container">
+        <p class="copyright-line">© 2026 KlarNachfragen. Alle Rechte vorbehalten.</p>
+      </div>
+    </footer>
+    <script defer src="js/enhancements.js"></script>
+  </body>
+</html>
