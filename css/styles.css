@@ -940,7 +940,7 @@ h2 {
   max-width: 55ch;
 }
 
-/* Cookie-Banner (Mock / Vorschau, ohne Funktion) */
+/* Cookie-Banner */
 body.has-cookie-banner-mock {
   padding-bottom: 11rem;
 }
@@ -954,6 +954,10 @@ body.has-cookie-banner-mock {
   background: var(--color-surface);
   border-top: 2px solid var(--color-border);
   box-shadow: 0 -4px 24px rgba(21, 24, 28, 0.08);
+}
+
+.cookie-banner[hidden] {
+  display: none !important;
 }
 
 .cookie-banner__inner {
@@ -988,7 +992,7 @@ body.has-cookie-banner-mock {
 
 .cookie-banner__btn {
   min-height: 2.75rem;
-  cursor: default;
+  cursor: pointer;
 }
 
 @media (max-width: 520px) {

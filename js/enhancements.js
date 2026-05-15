@@ -57,3 +57,38 @@
     target.focus({ preventScroll: false });
   });
 })();
+
+(() => {
+  const banner = document.querySelector(".cookie-banner");
+  if (!(banner instanceof HTMLElement)) {
+    return;
+  }
+
+  const storageKey = "klarnachfragen-cookie-mock";
+
+  const hideBanner = () => {
+    banner.hidden = true;
+    document.body.classList.remove("has-cookie-banner-mock");
+    try {
+      sessionStorage.setItem(storageKey, "1");
+    } catch {
+      /* sessionStorage nicht verfügbar */
+    }
+  };
+
+  try {
+    if (sessionStorage.getItem(storageKey) === "1") {
+      hideBanner();
+      return;
+    }
+  } catch {
+    /* sessionStorage nicht verfügbar */
+  }
+
+  banner.querySelectorAll(".cookie-banner__btn").forEach((button) => {
+    if (!(button instanceof HTMLButtonElement)) {
+      return;
+    }
+    button.addEventListener("click", hideBanner);
+  });
+})();
